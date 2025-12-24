@@ -1,0 +1,99 @@
+# ================================
+# Build results
+# ================================
+bin/
+obj/
+out/
+artifacts/
+
+# ================================
+# User-specific files
+# ================================
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ================================
+# Visual Studio / VS Code
+# ================================
+.vs/
+.vscode/
+.idea/
+
+# ================================
+# .NET / MAUI
+# ================================
+*.cache
+*.log
+project.lock.json
+project.fragment.lock.json
+msbuild.binlog
+
+# ================================
+# MAUI platform outputs
+# ================================
+**/Platforms/Android/**/bin/
+**/Platforms/Android/**/obj/
+**/Platforms/iOS/**/bin/
+**/Platforms/iOS/**/obj/
+**/Platforms/MacCatalyst/**/bin/
+**/Platforms/MacCatalyst/**/obj/
+**/Platforms/Windows/**/bin/
+**/Platforms/Windows/**/obj/
+
+# ================================
+# Android
+# ================================
+*.apk
+*.aab
+*.keystore
+*.jks
+local.properties
+
+# ================================
+# iOS / macOS
+# ================================
+*.app
+*.ipa
+*.dSYM/
+*.xcarchive/
+*.xcuserstate
+*.xcworkspace
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# ================================
+# macOS
+# ================================
+.DS_Store
+
+# ================================
+# Windows
+# ================================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ================================
+# Environment / Secrets
+# ================================
+.env
+.env.*
+secrets.json
+
+# ================================
+# Test results
+# ================================
+TestResults/
+
+# ================================
+# Logs & temp files
+# ================================
+*.tmp
+*.temp
+*.swp
+*.bak

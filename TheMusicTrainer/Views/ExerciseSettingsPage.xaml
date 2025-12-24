@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TheMusicTrainer.Views.ExerciseSettingsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Exercise Settings"
+    BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="24">
+
+            <!-- Exercise name -->
+            <Label
+                x:Name="ExerciseNameLabel"
+                Text="Exercise Name"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="Black" />
+
+            <!-- Exercise description -->
+            <Label
+                x:Name="ExerciseDescriptionLabel"
+                Text="Exercise description goes here."
+                FontSize="16"
+                TextColor="#555555" />
+
+            <!-- Question length -->
+            <VerticalStackLayout Spacing="8">
+                <Label
+                    Text="Number of Questions"
+                    FontAttributes="Bold"
+                    FontSize="18" />
+
+                <HorizontalStackLayout Spacing="12">
+                    <RadioButton
+                        Content="Short"
+                        GroupName="QuestionLength"
+                        CheckedChanged="OnQuestionLengthChanged" />
+
+                    <RadioButton
+                        Content="Medium"
+                        GroupName="QuestionLength"
+                        IsChecked="True"
+                        CheckedChanged="OnQuestionLengthChanged" />
+
+                    <RadioButton
+                        Content="Long"
+                        GroupName="QuestionLength"
+                        CheckedChanged="OnQuestionLengthChanged" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- Customisation options -->
+            <VerticalStackLayout Spacing="16">
+
+                <Label Text="Customisation Options" FontSize="18" FontAttributes="Bold" />
+
+                <!-- Slider 1 -->
+                <VerticalStackLayout>
+                    <Label Text="Option 1" />
+                    <Slider Minimum="0" Maximum="10" Value="5" />
+                </VerticalStackLayout>
+
+                <!-- Slider 2 -->
+                <VerticalStackLayout>
+                    <Label Text="Option 2" />
+                    <Slider Minimum="0" Maximum="10" Value="5" />
+                </VerticalStackLayout>
+
+                <!-- Slider 3 -->
+                <VerticalStackLayout>
+                    <Label Text="Option 3" />
+                    <Slider Minimum="0" Maximum="10" Value="5" />
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+
+            <!-- Start button -->
+            <Button
+                Text="Start Exercise"
+                HeightRequest="56"
+                BackgroundColor="#512BD4"
+                TextColor="White"
+                Clicked="OnStartExerciseClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

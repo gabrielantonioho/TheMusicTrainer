@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TheMusicTrainer.Views.ExerciseSelectionPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="White"
+    Title="Exercises">
+
+    <ContentPage.Resources>
+        <!-- Card container -->
+        <Style x:Key="CardStyle" TargetType="Border">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="Stroke" Value="#2A2A2A" />
+            <Setter Property="Margin" Value="10,10,10,20" />
+        </Style>
+
+        <!-- Row tile -->
+        <Style x:Key="RowStyle" TargetType="Grid">
+            <Setter Property="Padding" Value="14,14" />
+            <Setter Property="ColumnSpacing" Value="12" />
+        </Style>
+
+        <Style x:Key="RowTextStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+        <!-- separator line between rows -->
+        <Style x:Key="RowSeparatorStyle" TargetType="BoxView">
+            <Setter Property="HeightRequest" Value="1" />
+            <Setter Property="BackgroundColor" Value="#2A2A2A" />
+            <Setter Property="Margin" Value="62,0,0,0" />
+            <Setter Property="Opacity" Value="0.8" />
+        </Style>
+
+        <Style x:Key="ArrowStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="#FFA39F9F" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="End" />
+        </Style>
+
+    </ContentPage.Resources>
+
+    <ScrollView>
+    <VerticalStackLayout Spacing="0"
+                         BindableLayout.ItemsSource="{Binding Groups}">
+
+        <BindableLayout.ItemTemplate>
+            <DataTemplate>
+                <Border Style="{StaticResource CardStyle}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18" />
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout Spacing="0">
+
+                        <CollectionView ItemsSource="{Binding Items}" SelectionMode="None">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <VerticalStackLayout Spacing="0">
+
+                                        <Grid Style="{StaticResource RowStyle}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Border HeightRequest="36"
+                                                    WidthRequest="36"
+                                                    BackgroundColor="{Binding AccentColor}"
+                                                    StrokeThickness="0">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="10" />
+                                                </Border.StrokeShape>
+                                                <Image Source="{Binding Icon}"
+                                                       HeightRequest="22"
+                                                       WidthRequest="22"
+                                                       HorizontalOptions="Center"
+                                                       VerticalOptions="Center" />
+                                            </Border>
+
+                                            <Label Grid.Column="1"
+                                                   Text="{Binding Title}"
+                                                   Style="{StaticResource RowTextStyle}" />
+
+                                            <Label Grid.Column="2"
+                                                   Text="›"
+                                                   Style="{StaticResource ArrowStyle}" />
+
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectExerciseCommand}"
+                                                    CommandParameter="{Binding}" />
+                                            </Grid.GestureRecognizers>
+                                        </Grid>
+
+                                        <BoxView Style="{StaticResource RowSeparatorStyle}" />
+                                    </VerticalStackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                    </VerticalStackLayout>
+                </Border>
+            </DataTemplate>
+        </BindableLayout.ItemTemplate>
+
+        <BoxView HeightRequest="24" Opacity="0" />
+    </VerticalStackLayout>
+</ScrollView>
+
+</ContentPage>
